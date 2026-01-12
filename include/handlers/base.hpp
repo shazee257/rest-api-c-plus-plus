@@ -6,7 +6,7 @@
 class BaseHandler : public IHandler
 {
 public:
-    explicit BaseHandler(const );
+    explicit BaseHandler();
 
 private:
     std::string basePath_;
