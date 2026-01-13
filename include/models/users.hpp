@@ -2,11 +2,9 @@
 
 #include <string>
 
-using std::string;
-
 struct User
 {
     int id;
-    string name;
-    string email;
+    std::string username;
+    std::string email;
 };

@@ -1,21 +1,25 @@
 #include <iostream>
-// #include <crow.h>
+#include <memory>
+#include <stdexcept>
+#include "server.hpp"
 
 int main()
 {
-    std::cout << "Hello, World!" << std::endl;
+    try
+    {
+        ServerConfig config;
+        config.port = 8080;
+        config.threads = 2;
+        config.logLevel = "info";
+        config.cors = true;
+        config.corsOrigin = "*";
 
-    // crow::SimpleApp app;
-
-    // CROW_ROUTE(app, "/")(
-    //     []()
-    //     {
-    //         // crow::json::wvalue x({{"message", "Hello, World!"}});
-    //         return crow::response(200, "Hello, World!");
-    //         // x["status"] = 200;
-    //         // return x;
-    //     });
-
-    // app.port(5000).multithreaded().run();
-    return 0;
+        auto server = std::make_unique<Server>(config);
+        server->start();
+        return 0;
+    }
+    catch (const std::exception &e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 }

@@ -1,15 +1,19 @@
 #pragma once
 
+#include <crow.h>
 #include <unordered_map>
 #include <mutex>
+#include <string>
+#include <vector>
+#include <stdexcept>
 
 #include "base.hpp"
-#include "../models/user.hpp"
+#include "models/users.hpp"
 
-class UsersHandler : public BaseHandler
+class UserHandler : public BaseHandler
 {
 public:
-    UsersHandler(const std::string &basePath);
+    UserHandler(const std::string &basePath);
     void registerRoutes(App &app) override;
 
 private:
@@ -19,8 +23,8 @@ private:
     crow::response update(int id, const crow::request &req);
     crow::response remove(int id);
 
-    // Mock data
+    // Mock database
     std::unordered_map<int, User> users_;
-    int last_id_;
+    int lastID_;
     std::mutex mutex_;
 };

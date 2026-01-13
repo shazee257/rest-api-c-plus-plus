@@ -11,7 +11,7 @@ struct ServerConfig
 {
     int port = 8080;
     int threads = 2;
-    std::string log_level = "info";
+    std::string logLevel = "info";
     bool cors = true;
     std::string corsOrigin = "*";
 };
