@@ -8,9 +8,9 @@ UserHandler::UserHandler(const std::string &basePath) : BaseHandler(basePath)
 
     // Mock database
     this->lastID_ += 1;
-    this->users_[this->lastID_] = User{1, "asad", "l0h2S@example.com"};
+    this->users_[this->lastID_] = User{1, "Micheal", "abc@example.com"};
     this->lastID_ += 1;
-    this->users_[this->lastID_] = User{2, "asad2", "l0h2S@example.com"};
+    this->users_[this->lastID_] = User{2, "John Doe", "xyz@example.com"};
 }
 
 crow::response UserHandler::list(const crow::request &req)
